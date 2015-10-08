@@ -2,21 +2,23 @@
 <html>
 
 <head>
-    <script src="bower_components/angular/angular.min.js"></script>
+    <!-- css -->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- scripts -->
+    <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="./app.js"></script>
-    <script src="./taskController.js"></script>
-    <script src="./api.js"></script>
+    <script src="./controllers/currentTaskController.js"></script>
+    <script src="./controllers/completedTaskController.js"></script>
+    <script src="./services/api.js"></script>
 </head>
 
 <body ng-app="TodoApp">
     <a ui-sref="current">Current Tasks</a>
     <a ui-sref="completed">Completed Tasks</a>
     <div ui-view></div>
-  
 </body>
 
 </html>

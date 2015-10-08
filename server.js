@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Todo = require('./todoModel');
-var CompletedTodo = require('./completedModel');
 var app = express();
 
 
@@ -40,7 +39,8 @@ app.post("/api/todos", function(req, res) {
     var todo = new Todo({
         name: req.body.name,
         task: req.body.task,
-        created: Date.now()
+        created: Date.now(),
+        isComplete: req.body.isComplete
     });
     todo.save();
 
@@ -58,9 +58,11 @@ app.delete("/api/todos/:id", function(req, res) {
     });
 });
 
-app.get("/api/completed", function(req, res){
-    CompletedTodo.find(function(err, data){
-        res.json(data);
+app.put('/api/todos/:id', function(req, res){
+    Todo.findById(req.params.id, function(err, todo){
+        todo.isComplete = req.body.isComplete;
+        todo.save();
+        res.json(todo);
     });
 });
 //By default, MongoDB automatically saves tables into a database with a plural (I personally don't like it). You can override it like below.

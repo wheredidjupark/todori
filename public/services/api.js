@@ -2,28 +2,35 @@
 
     var api = function($http) {
 
-        var get = function() {
+        var getTodo = function() {
             return $http.get("/api/todos/").then(function(response) {
                 return response.data;
             });
         };
 
-        var remove = function(todoId){
+        var removeTodo = function(todoId){
         	return $http.delete("/api/todos/"+todoId).then(function(response){
         		return response.data;
         	});
         };
 
-        var post = function(todoObj){
+        var postTodo = function(todoObj){
         	return $http.post("/api/todos/", todoObj).then(function(response){
         		return response.data;
         	});
         };
 
+        var putTodo = function(todoId, todoObj){
+        	return $http.put('/api/todos'+todoId, todoObj).then(function(response){
+        		return response.data;
+        	});
+        };
+
+
         return {
-        	getTodo: get,
-        	removeTodo: remove,
-        	postTodo: post
+        	getTodo: getTodo,
+        	removeTodo: removeTodo,
+        	postTodo: postTodo
         };
     };
 

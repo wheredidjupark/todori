@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var TodoSchema = new Schema({
     name: {type: String, default: "Ju Park"},
     task: {type: String, default: "none"},
-    created: Date
+    created: Date,
+    isComplete: {type: Boolean, default: false}
 }, {
     collection: 'todo'
 }); //This is the schema (i.e. us telling what are the fields and the types)
