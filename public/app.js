@@ -3,7 +3,14 @@
 
     var app = angular.module("TodoApp", ['ui.router']);
 
-    app.config(function($stateProvider, $urlRouterProvider) {
+    app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    	//the following removes the hash in url (with a bug....)
+    	/*
+    	$locationProvider.html5Mode({
+    		enabled:true,
+    		requireBase: false
+    	});*/
 
         $urlRouterProvider.otherwise("/current");
 

@@ -12,13 +12,23 @@
     <script src="./app.js"></script>
     <script src="./controllers/currentTaskController.js"></script>
     <script src="./controllers/completedTaskController.js"></script>
+    <script src="./directives/todoFormDirective.js"></script>
     <script src="./services/api.js"></script>
 </head>
 
 <body ng-app="TodoApp">
-    <a ui-sref="current">Current Tasks</a>
-    <a ui-sref="completed">Completed Tasks</a>
-    <div ui-view></div>
+    <div class="text-center">
+        <h1>ToDoRi</h1>
+    </div>
+    <nav class="container">
+        <a ui-sref="current">
+            <button class="btn btn-info">Current</button>
+        </a>
+        <a ui-sref="completed">
+            <button class="btn btn-info">Completed</button>
+        </a>
+    </nav>
+    <div ui-view class="container"></div>
 </body>
 
 </html>
